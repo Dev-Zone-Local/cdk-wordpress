@@ -17,20 +17,20 @@
     },
     "CdkStack": {
       "type": "aws:cloudformation:stack",
-      "environment": "aws://000000000001/us-east-1",
+      "environment": "aws://unknown-account/unknown-region",
       "properties": {
         "templateFile": "CdkStack.template.json",
         "validateOnSynth": false,
-        "assumeRoleArn": "arn:${AWS::Partition}:iam::000000000001:role/cdk-hnb659fds-deploy-role-000000000001-us-east-1",
-        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::000000000001:role/cdk-hnb659fds-cfn-exec-role-000000000001-us-east-1",
-        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-000000000001-us-east-1/8a6a2b2f7505c8461ef8fb37deab6ff0ece58c9e2909f0e83075d1536fc19877.json",
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-${AWS::Region}",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-${AWS::Region}",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/5b976af33b77321c9d28134332cd955b34bdc9b6fb319b372c3a32fca2d5472e.json",
         "requiresBootstrapStackVersion": 6,
         "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
         "additionalDependencies": [
           "CdkStack.assets"
         ],
         "lookupRole": {
-          "arn": "arn:${AWS::Partition}:iam::000000000001:role/cdk-hnb659fds-lookup-role-000000000001-us-east-1",
+          "arn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-lookup-role-${AWS::AccountId}-${AWS::Region}",
           "requiresBootstrapStackVersion": 8,
           "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
         }
@@ -72,7 +72,7 @@
         "/CdkStack/api_1/Deployment/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "api1Deployment09A80E5Ff144b805765b321fa2b29861c8b67832"
+            "data": "api1Deployment09A80E5Fdf0324f1e753e4ef4b66f12584b74fa0"
           }
         ],
         "/CdkStack/api_1/DeploymentStage.prod/Resource": [
@@ -133,6 +133,12 @@
           {
             "type": "aws:cdk:logicalId",
             "data": "CDKMetadata"
+          }
+        ],
+        "/CdkStack/CDKMetadata/Condition": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadataAvailable"
           }
         ],
         "/CdkStack/BootstrapVersion": [

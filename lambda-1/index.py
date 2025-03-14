@@ -1,5 +1,5 @@
 def handler(event, context):
     return {
         'statusCode': 200,
-        'body': 'Hello from Lambda! by Niket for testing'
+        'body': 'Hello from Lambda! by Niket for QA'
     }
