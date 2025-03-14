@@ -21,3 +21,12 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
+
+      - name: Bootstrap LocalStack CDK
+        run: |
+          cdklocal bootstrap
+
+      - name: Deploy LocalStack CDK
+        run: |
+          cdklocal synth -c env=qa
+          cdklocal deploy -c env=qa --require-approval never --no-rollback
