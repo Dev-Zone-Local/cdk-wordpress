@@ -32,13 +32,15 @@
       "lambdaFunction": "lambda-dev",
       "vpcName": "vpc-dev",
       "apiName": "api-dev",
-      "s3bucket": "s3bucket-dev"
+      "s3bucket": "s3bucket-dev",
+      "clusterName": "cluster-dev"
     },
     "qa": {
       "lambdaFunction": "lambda-qa",
       "vpcName": "vpc-qa",
       "apiName": "api-qa",
-      "s3bucket": "s3bucket-qa"
+      "s3bucket": "s3bucket-qa",
+      "clusterName": "cluster-qa"
     }
   }
 }
