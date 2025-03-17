@@ -15,11 +15,11 @@ jobs:
           uses: docker://niketchandra/aws-cdk:new
           with:
             args: |
+              cd cdk/ &&
+              pwd &&
               sh -c "
               npm install -g aws-cdk &&
-              pwd &&
-              cdk --version &&
-              cd cdk/ &&
+              cdk --version &&             
               cdk bootstrap aws://$ACCOUNT_ID/$AWS_REGION &&
               cdk deploy
               "
