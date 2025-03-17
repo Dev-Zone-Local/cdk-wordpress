@@ -16,13 +16,13 @@ jobs:
           with:
             args: |
               cd cdk/ &&
-              pwd &&
-              sh -c "
-              npm install -g aws-cdk &&
-              cdk --version &&             
-              cdk bootstrap aws://$ACCOUNT_ID/$AWS_REGION &&
-              cdk deploy
-              "
+              pwd
+              # sh -c "
+              # npm install -g aws-cdk &&
+              # cdk --version &&             
+              # cdk bootstrap aws://$ACCOUNT_ID/$AWS_REGION &&
+              # cdk deploy
+              # "
           env:
             ACCOUNT_ID: ${{ secrets.ACCOUNT_ID }}
             AWS_REGION: ${{ secrets.AWS_REGION }}
