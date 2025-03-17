@@ -12,18 +12,12 @@ jobs:
           uses: actions/checkout@v4
 
         - name: Use custom Docker image
-          uses: docker://niketchandra/aws-cdk:new
-          with:
-            args: |
+          run: |
+            docker run --rm -e ACCOUNT_ID=${{ secrets.ACCOUNT_ID }} -e AWS_REGION=${{ secrets.AWS_REGION }} -e GITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }} niketchandra/aws-cdk:new sh -c "
               cd cdk/ &&
               pwd
-              # sh -c "
-              # npm install -g aws-cdk &&
-              # cdk --version &&             
-              # cdk bootstrap aws://$ACCOUNT_ID/$AWS_REGION &&
-              # cdk deploy
-              # "
-          env:
-            ACCOUNT_ID: ${{ secrets.ACCOUNT_ID }}
-            AWS_REGION: ${{ secrets.AWS_REGION }}
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              npm install -g aws-cdk &&
+              cdk --version &&             
+              cdk bootstrap aws://$ACCOUNT_ID/$AWS_REGION &&
+              cdk deploy
+              "
