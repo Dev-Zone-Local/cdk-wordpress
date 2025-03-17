@@ -13,7 +13,7 @@ jobs:
 
         - name: Use custom Docker image
           run: |
-            docker run --rm -e ACCOUNT_ID=${{ secrets.ACCOUNT_ID }} -e AWS_REGION=${{ secrets.AWS_REGION }} -e GITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }} niketchandra/aws-cdk:new sh -c "
+            docker run --rm -e ACCOUNT_ID=${{ secrets.ACCOUNT_ID }} -e AWS_REGION=${{ secrets.AWS_REGION }} -e GITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }} -v .:. niketchandra/aws-cdk:new sh -c "
               ls &&
               cd cdk/ &&
               pwd &&
