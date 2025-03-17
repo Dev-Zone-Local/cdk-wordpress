@@ -12,7 +12,7 @@ jobs:
           uses: actions/checkout@v4
 
         - name: Use custom Docker image
-          uses: niketchandra/aws-cdk:new
+          uses: docker://niketchandra/aws-cdk:new
           with:
             args: |
               sh -c "
