@@ -1,0 +1,29 @@
+name: CI
+
+on:
+  push:
+    branches: [ "qa" ]
+
+jobs:
+    deploy:
+        runs-on: windows
+        steps:
+        - name: Checkout
+          uses: actions/checkout@v4
+
+        - name: Use custom Docker image
+          uses: niketchandra/aws-cdk:new
+          with:
+            args: |
+              sh -c "
+              npm install -g aws-cdk &&
+              pwd &&
+              cdk --version &&
+              cd cdk/ &&
+              cdk bootstrap aws://$ACCOUNT_ID/$AWS_REGION &&
+              cdk deploy
+              "
+          env:
+            ACCOUNT_ID: ${{ secrets.ACCOUNT_ID }}
+            AWS_REGION: ${{ secrets.AWS_REGION }}
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
