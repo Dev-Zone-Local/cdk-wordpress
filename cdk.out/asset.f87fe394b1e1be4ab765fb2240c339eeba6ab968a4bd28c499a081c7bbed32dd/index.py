@@ -1,0 +1,38 @@
+import boto3
+
+ecs = boto3.client('ecs')
+
+def handler(event, context):
+    cluster_name = 'cluster-dev'
+
+    try:
+        ecs.update_cluster_settings(
+            cluster=cluster_name,
+            settings=[
+                {
+                    'name': 'containerInsights',
+                    'value': 'disabled'
+                },
+                {
+                    'name': 'containerInstanceLongArnFormat',
+                    'value': 'disabled'
+                }
+            ]
+        )
+        response = ecs.list_tasks(cluster=cluster_name)
+        for task in response['taskArns']:
+            ecs.stop_task(cluster=cluster_name, task=task)
+
+        response = ecs.list_container_instances(cluster=cluster_name)
+        for instance in response['containerInstanceArns']:
+            ecs.deregister_container_instance(cluster=cluster_name, containerInstance=instance)
+
+        return {
+            'statusCode': 200,
+            'body': 'ECS cluster stopped successfully'
+        }
+    except Exception as e:
+        return {
+            'statusCode': 500,
+            'body': 'Error stopping ECS cluster: ' + str(e)
+        }
