@@ -1,12 +1,6 @@
 {
-  "version": "16.0.0",
+  "version": "40.0.0",
   "artifacts": {
-    "Tree": {
-      "type": "cdk:tree",
-      "properties": {
-        "file": "tree.json"
-      }
-    },
     "CdkStack.assets": {
       "type": "cdk:asset-manifest",
       "properties": {
@@ -20,10 +14,11 @@
       "environment": "aws://000000000000/us-east-1",
       "properties": {
         "templateFile": "CdkStack.template.json",
+        "terminationProtection": false,
         "validateOnSynth": false,
         "assumeRoleArn": "arn:${AWS::Partition}:iam::000000000000:role/cdk-hnb659fds-deploy-role-000000000000-us-east-1",
         "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::000000000000:role/cdk-hnb659fds-cfn-exec-role-000000000000-us-east-1",
-        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-000000000000-us-east-1/dad0b535cf7aa3f9c96351f1d432f75ce4c26b36d0b0c49585dea1ef4a645e76.json",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-000000000000-us-east-1/f9f2e38c6c356512df2e9069dbd8168ae91e4c44918d4829bb8285e17b9db2b8.json",
         "requiresBootstrapStackVersion": 6,
         "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
         "additionalDependencies": [
@@ -39,6 +34,96 @@
         "CdkStack.assets"
       ],
       "metadata": {
+        "/CdkStack/Lambda-1/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "Lambda1ServiceRoleEBABAF1A"
+          }
+        ],
+        "/CdkStack/Lambda-1/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "Lambda158B6D6F9"
+          }
+        ],
+        "/CdkStack/api_1/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "api199AF8C04"
+          }
+        ],
+        "/CdkStack/api_1/CloudWatchRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "api1CloudWatchRole64C089EE"
+          }
+        ],
+        "/CdkStack/api_1/Account": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "api1AccountFDCD6058"
+          }
+        ],
+        "/CdkStack/api_1/Deployment/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "api1Deployment09A80E5Ff144b805765b321fa2b29861c8b67832"
+          }
+        ],
+        "/CdkStack/api_1/DeploymentStage.prod/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "api1DeploymentStageprod395691EE"
+          }
+        ],
+        "/CdkStack/api_1/Endpoint": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "api1EndpointD71FF83A"
+          }
+        ],
+        "/CdkStack/api_1/Default/{proxy+}/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "api1proxyECFB00F3"
+          }
+        ],
+        "/CdkStack/api_1/Default/{proxy+}/ANY/ApiPermission.CdkStackapi11A84FE31.ANY..{proxy+}": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "api1proxyANYApiPermissionCdkStackapi11A84FE31ANYproxy43C684DE"
+          }
+        ],
+        "/CdkStack/api_1/Default/{proxy+}/ANY/ApiPermission.Test.CdkStackapi11A84FE31.ANY..{proxy+}": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "api1proxyANYApiPermissionTestCdkStackapi11A84FE31ANYproxy63A52648"
+          }
+        ],
+        "/CdkStack/api_1/Default/{proxy+}/ANY/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "api1proxyANY233D83F1"
+          }
+        ],
+        "/CdkStack/api_1/Default/ANY/ApiPermission.CdkStackapi11A84FE31.ANY..": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "api1ANYApiPermissionCdkStackapi11A84FE31ANY0AF3D73F"
+          }
+        ],
+        "/CdkStack/api_1/Default/ANY/ApiPermission.Test.CdkStackapi11A84FE31.ANY..": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "api1ANYApiPermissionTestCdkStackapi11A84FE31ANY824B998C"
+          }
+        ],
+        "/CdkStack/api_1/Default/ANY/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "api1ANY97BB2804"
+          }
+        ],
         "/CdkStack/vpc-dev/Resource": [
           {
             "type": "aws:cdk:logicalId",
@@ -237,10 +322,40 @@
             "data": "vpcdevVPCGW3A55C3D4"
           }
         ],
+        "/CdkStack/SecurityGroup0/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SecurityGroup0C33D8C57"
+          }
+        ],
+        "/CdkStack/SecurityGroup0/from CdkStackServiceLBSecurityGroupC824F010:80": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SecurityGroup0fromCdkStackServiceLBSecurityGroupC824F01080F94AA8EE"
+          }
+        ],
+        "/CdkStack/SecurityGroup0/from CdkStackSecurityGroup021E72BD3:{IndirectPort}": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SecurityGroup0fromCdkStackSecurityGroup021E72BD3IndirectPortCB2B682C"
+          }
+        ],
         "/CdkStack/Cluster/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "ClusterEB0386A7"
+          }
+        ],
+        "/CdkStack/wp_efs/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "wpefs403035DF"
+          }
+        ],
+        "/CdkStack/wp_efs/EfsMountTarget1": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "wpefsEfsMountTarget10DDE135E"
           }
         ],
         "/CdkStack/TaskDef/TaskRole/Resource": [
@@ -255,64 +370,118 @@
             "data": "TaskDef54694570"
           }
         ],
-        "/CdkStack/Service1/LB/Resource": [
+        "/CdkStack/Secret/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "Service1LB65DD09F8"
+            "data": "SecretA720EF05"
           }
         ],
-        "/CdkStack/Service1/LB/SecurityGroup/Resource": [
+        "/CdkStack/RdsInstance/SubnetGroup/Default": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "Service1LBSecurityGroupFF10F2B1"
+            "data": "RdsInstanceSubnetGroup9495D83D"
           }
         ],
-        "/CdkStack/Service1/LB/SecurityGroup/to CdkStackService1ServiceSecurityGroup0C0E4F79:80": [
+        "/CdkStack/RdsInstance/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "Service1LBSecurityGrouptoCdkStackService1ServiceSecurityGroup0C0E4F7980B43C80AB"
+            "data": "RdsInstance1D827D17"
           }
         ],
-        "/CdkStack/Service1/LB/PublicListener/Resource": [
+        "/CdkStack/Service/LB/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "Service1LBPublicListenerF868C6C6"
+            "data": "ServiceLBE9A1ADBC"
           }
         ],
-        "/CdkStack/Service1/LB/PublicListener/ECSGroup/Resource": [
+        "/CdkStack/Service/LB/SecurityGroup/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "Service1LBPublicListenerECSGroupD1750D12"
+            "data": "ServiceLBSecurityGroupF7435A5C"
           }
         ],
-        "/CdkStack/Service1/LoadBalancerDNS": [
+        "/CdkStack/Service/LB/SecurityGroup/to CdkStackSecurityGroup021E72BD3:80": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "Service1LoadBalancerDNS51D28094"
+            "data": "ServiceLBSecurityGrouptoCdkStackSecurityGroup021E72BD38088E761F5"
           }
         ],
-        "/CdkStack/Service1/ServiceURL": [
+        "/CdkStack/Service/LB/PublicListener/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "Service1ServiceURL9EFB1634"
+            "data": "ServiceLBPublicListener46709EAA"
           }
         ],
-        "/CdkStack/Service1/Service/Service": [
+        "/CdkStack/Service/LB/PublicListener/ECSGroup/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "Service1Service18B9588C"
+            "data": "ServiceLBPublicListenerECSGroup0CC8688C"
           }
         ],
-        "/CdkStack/Service1/Service/SecurityGroup/Resource": [
+        "/CdkStack/Service/LoadBalancerDNS": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "Service1ServiceSecurityGroupD4554020"
+            "data": "ServiceLoadBalancerDNSEC5B149E"
           }
         ],
-        "/CdkStack/Service1/Service/SecurityGroup/from CdkStackService1LBSecurityGroup7C34355B:80": [
+        "/CdkStack/Service/ServiceURL": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "Service1ServiceSecurityGroupfromCdkStackService1LBSecurityGroup7C34355B80A15BA3B9"
+            "data": "ServiceServiceURL250C0FB6"
+          }
+        ],
+        "/CdkStack/Service/Service": [
+          {
+            "type": "aws:cdk:warning",
+            "data": "minHealthyPercent has not been configured so the default value of 50% is used. The number of running tasks will decrease below the desired count during deployments etc. See https://github.com/aws/aws-cdk/issues/31705 [ack: @aws-cdk/aws-ecs:minHealthyPercent]",
+            "trace": [
+              "Annotations.addMessage (D:\\Projects\\LocalStack-Projectss\\cdk\\node_modules\\aws-cdk-lib\\core\\lib\\annotations.js:1:1608)",
+              "Annotations.addWarningV2 (D:\\Projects\\LocalStack-Projectss\\cdk\\node_modules\\aws-cdk-lib\\core\\lib\\annotations.js:1:825)",
+              "new BaseService (D:\\Projects\\LocalStack-Projectss\\cdk\\node_modules\\aws-cdk-lib\\aws-ecs\\lib\\base\\base-service.js:1:8100)",
+              "new FargateService (D:\\Projects\\LocalStack-Projectss\\cdk\\node_modules\\aws-cdk-lib\\aws-ecs\\lib\\fargate\\fargate-service.js:1:3551)",
+              "new ApplicationLoadBalancedFargateService (D:\\Projects\\LocalStack-Projectss\\cdk\\node_modules\\aws-cdk-lib\\aws-ecs-patterns\\lib\\fargate\\application-load-balanced-fargate-service.js:1:3340)",
+              "new CdkStack (D:\\Projects\\LocalStack-Projectss\\cdk\\lib\\cdk-stack.ts:127:23)",
+              "Object.<anonymous> (D:\\Projects\\LocalStack-Projectss\\cdk\\bin\\cdk.ts:7:1)",
+              "Module._compile (node:internal/modules/cjs/loader:1469:14)",
+              "Module.m._compile (D:\\Projects\\LocalStack-Projectss\\cdk\\node_modules\\ts-node\\src\\index.ts:1056:23)",
+              "Module._extensions..js (node:internal/modules/cjs/loader:1548:10)",
+              "Object.require.extensions.<computed> [as .ts] (D:\\Projects\\LocalStack-Projectss\\cdk\\node_modules\\ts-node\\src\\index.ts:1059:12)",
+              "Module.load (node:internal/modules/cjs/loader:1288:32)",
+              "Function.Module._load (node:internal/modules/cjs/loader:1104:12)",
+              "Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:174:12)",
+              "main (D:\\Projects\\LocalStack-Projectss\\cdk\\node_modules\\ts-node\\src\\bin.ts:198:14)",
+              "Object.<anonymous> (D:\\Projects\\LocalStack-Projectss\\cdk\\node_modules\\ts-node\\src\\bin.ts:288:3)",
+              "Module._compile (node:internal/modules/cjs/loader:1469:14)",
+              "Object.Module._extensions..js (node:internal/modules/cjs/loader:1548:10)",
+              "Module.load (node:internal/modules/cjs/loader:1288:32)",
+              "Function.Module._load (node:internal/modules/cjs/loader:1104:12)",
+              "Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:174:12)",
+              "node:internal/main/run_main_module:28:49"
+            ]
+          }
+        ],
+        "/CdkStack/Service/Service/Service": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "Service9571FDD8"
+          }
+        ],
+        "/CdkStack/RDSConnectionString": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "RDSConnectionString"
+          }
+        ],
+        "/CdkStack/RDSConnectionPort": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "RDSConnectionPort"
+          }
+        ],
+        "/CdkStack/LoadBalancerDNS": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "LoadBalancerDNS"
           }
         ],
         "/CdkStack/CDKMetadata/Default": [
@@ -335,6 +504,12 @@
         ]
       },
       "displayName": "CdkStack"
+    },
+    "Tree": {
+      "type": "cdk:tree",
+      "properties": {
+        "file": "tree.json"
+      }
     }
   }
 }
